@@ -67,7 +67,8 @@ public class MartinezCristianEjercicio1 {  // "Metodo main"(metodo principal don
                                                        en la matriz */
 
         // Ahora vamos a imprimir y mostrar al usuario el terreno con las bombas colocadas
-        System.out.println("¡ULTIMO AVISO!¡PELIGRO!¡SE B00MBAS EN EL CMAPO DE BATALLA");
+
+        System.out.println("¡ULTIMO AVISO!¡PELIGRO!¡B00MBAS EN EL CAMPO DE BATALLA");
 
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -75,42 +76,72 @@ public class MartinezCristianEjercicio1 {  // "Metodo main"(metodo principal don
             }
             System.out.println(); // Salto de linea
         }
-        // Función que mueve al jugador
-        String movimientoJugador; // Variable que almacena la direccion del movimiento: arriba, abajo, izquierda,derecha.
-        int pasos = 0; // Contador de pasos.
-        boolean juegoActivo = true; // Condicion booleana que controla el estado del juego.
+          // Menú de opciones para el jugador
+        boolean continuar = true;
 
-        // Creamos un bucle para que se continue ejecutando hasta que el juego se detenga.
-        while (juegoActivo) {
-            System.out.println("Introduce un movimiento: arriba, abajo, izquierda, derecha:");
-            movimientoJugador = input.nextLine().toLowerCase(); /* Convierte el movimiento a minúsculas para mayor
-                                                                   flexibilidad */
-            switch (movimientoJugador) {
+        while (continuar) {
 
-                case "arriba":
-                    if (filaJugador > 0) filaJugador--; // Mover arriba.
+            mostrarMenu(); // Llamada al metodo mostrar menú
+            int opcion = input.nextInt();
+            input.nextLine(); // Limpio el buffer después de leer un número.
+
+            switch (opcion){
+                case 0:
+                    System.out.println("¡Hasta pornto!¡GAME 0VER!");
+                    continuar = false; // Termina el juego
                     break;
 
-                case "abajo":
-                    if (filaJugador < filas - 1) filaJugador++; // Mover abajo.
+                case 1: // Mostrar matriz
+                    System.out.println("Terreno del campo de batalla");
+                    for (int i = 0; i < filas; i++) {
+                        for (int j = 0; j < columnas; j++) {
+                            System.out.print(terreno[i][j] + " "); // Imprime cada celda.
+                        }
+                        System.out.println(); // Salto de linea.
+                    }
                     break;
 
-                case "izquierda":
-                    if (columnaJugador > 0) columnaJugador--; // Mover izquierda.
+                case 2: // Colocar Bomba
+                    System.out.println("Introduce las coordenadas (fila/columna) para colocar la bomba");
+
+                    int filaBomba = input.nextInt();
+                    input.nextLine(); // Limpio el buffer después de leer un número.
+                    int columnaBomba = input.nextInt();
+                    input.nextLine(); // Limpio el buffer después de leer un número.
+
+                    if (filaBomba >= 0 && filaBomba < filas && columnaBomba >= 0 && columnaBomba < columnas) {
+                        // Calcular la explosión (suma de la fija y columna
+                        int explosion = 0;
+
+                        for (int i=0; i < columnas; i++) {
+                            explosion = explosion + (terreno[filaBomba][i] - '0'); // Sumar valores en la fila.
+                        } for (int i = 0; i < filas; i++) {
+                            explosion = explosion + (terreno[i][columnaBomba] - '0'); // Sumar valores en la columna.
+                        }
+                        System.out.println("Valor explosión "+explosion);
+                        // Colocar la bomba
+                        terreno[filaBomba][columnaBomba] = '0'; // Cambiar a 0 si la bomba ha explotado.
+                    } else {
+                        System.out.println("Coordenadas no válidas, fuera de rango");
+                    }
                     break;
 
-                case "derecha":
-                    if (columnaJugador < columnas - 1) columnaJugador++; // Mover derecha.
-                    break;
-
-                default: // Si el usuario introduce un movimiento no válido, muestra un mensaje de error.
-                    System.out.println("Movimiento no válido"); // Si el movimiento no es válido, muestra un mensaje.
-                    continue; // Vuelve al inicio del bucle para pedir un nuevo movimiento.
-            }
+                default:
+                    System.out.println("Opción no valida, por favor, elige una opción del menu que sea válida");
         }
     }
 }
 
+// Método para mostrar el menú de opciones
+
+    public static void mostrarMenu() {
+
+        System.out.println("[0] Salir");
+        System.out.println("[1] Mostrar matriz");
+        System.out.println("[2] Poner bomba");
+
+    }
+}
 
 
 
