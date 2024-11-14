@@ -1,8 +1,8 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class MartinezCristianEjercicio1{  // "Metodo main"(metodo principal donde empieza el juego).
-    public static void main(String[] args){
+public class MartinezCristianEjercicio1 {  // "Metodo main"(metodo principal donde empieza el juego).
+    public static void main(String[] args) {
 
         /*Impresion de mensaje de bienvenida al usuario.
         Este mensaje aparecerá al inicio para que el usuario sepa que está en el juego Bomberman.*/
@@ -80,28 +80,33 @@ public class MartinezCristianEjercicio1{  // "Metodo main"(metodo principal dond
         int pasos = 0; // Contador de pasos.
         boolean juegoActivo = true; // Condicion booleana que controla el estado del juego.
 
-        switch (movimientoJugador){
+        // Creamos un bucle para que se continue ejecutando hasta que el juego se detenga.
+        while (juegoActivo) {
+            System.out.println("Introduce un movimiento: arriba, abajo, izquierda, derecha:");
+            movimientoJugador = input.nextLine().toLowerCase(); /* Convierte el movimiento a minúsculas para mayor
+                                                                   flexibilidad */
+            switch (movimientoJugador) {
 
-            case "arriba":
-                if (filaJugador>0) filaJugador--; // Mover arriba.
-                break;
+                case "arriba":
+                    if (filaJugador > 0) filaJugador--; // Mover arriba.
+                    break;
 
-            case "abajo":
-                if (filaJugador<filas-1) filaJugador++; // Mover abajo.
-                break;
+                case "abajo":
+                    if (filaJugador < filas - 1) filaJugador++; // Mover abajo.
+                    break;
 
-            case "izquierda":
-                if (columnaJugador>0) columnaJugador--; // Mover izquierda.
-                break;
+                case "izquierda":
+                    if (columnaJugador > 0) columnaJugador--; // Mover izquierda.
+                    break;
 
-            case "derecha":
-                if (columnaJugador<columnas-1) columnaJugador++; // Mover derecha.
-                break;
+                case "derecha":
+                    if (columnaJugador < columnas - 1) columnaJugador++; // Mover derecha.
+                    break;
 
-            default: // Si el usuario introduce un movimiento no válido, muestra un mensaje de error.
-                System.out.println("Movimiento no válido"); // Si el movimiento no es válido, muestra un mensaje.
-                continue; // Vuelve al inicio del bucle para pedir un nuevo movimiento.
-
+                default: // Si el usuario introduce un movimiento no válido, muestra un mensaje de error.
+                    System.out.println("Movimiento no válido"); // Si el movimiento no es válido, muestra un mensaje.
+                    continue; // Vuelve al inicio del bucle para pedir un nuevo movimiento.
+            }
         }
     }
 }
