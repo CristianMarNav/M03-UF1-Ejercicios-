@@ -1,8 +1,8 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class MartinezCristianEjercicio1 {  // "Metodo main"(metodo principal donde empieza el juego)
-    public static void main(String[] args) {
+public class MartinezCristianEjercicio1{  // "Metodo main"(metodo principal donde empieza el juego).
+    public static void main(String[] args){
 
         /*Impresion de mensaje de bienvenida al usuario.
         Este mensaje aparecerá al inicio para que el usuario sepa que está en el juego Bomberman.*/
@@ -73,7 +73,35 @@ public class MartinezCristianEjercicio1 {  // "Metodo main"(metodo principal don
             for (int j = 0; j < columnas; j++) {
                 System.out.print(terreno[i][j] + " ");// Imprime cada celda
             }
-            System.out.println(); // Salto de linea al final de cada fila
+            System.out.println(); // Salto de linea
+        }
+        // Función que mueve al jugador
+        String movimientoJugador; // Variable que almacena la direccion del movimiento: arriba, abajo, izquierda,derecha.
+        int pasos = 0; // Contador de pasos.
+        boolean juegoActivo = true; // Condicion booleana que controla el estado del juego.
+
+        switch (movimientoJugador){
+
+            case "arriba":
+                if (filaJugador>0) filaJugador--; // Mover arriba.
+                break;
+
+            case "abajo":
+                if (filaJugador<filas-1) filaJugador++; // Mover abajo.
+                break;
+
+            case "izquierda":
+                if (columnaJugador>0) columnaJugador--; // Mover izquierda.
+                break;
+
+            case "derecha":
+                if (columnaJugador<columnas-1) columnaJugador++; // Mover derecha.
+                break;
+
+            default: // Si el usuario introduce un movimiento no válido, muestra un mensaje de error.
+                System.out.println("Movimiento no válido"); // Si el movimiento no es válido, muestra un mensaje.
+                continue; // Vuelve al inicio del bucle para pedir un nuevo movimiento.
+
         }
     }
 }
