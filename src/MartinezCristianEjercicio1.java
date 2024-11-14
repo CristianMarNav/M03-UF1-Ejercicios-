@@ -21,17 +21,13 @@ public class MartinezCristianEjercicio1 {  // "Metodo main"(metodo principal don
 
         System.out.println("Introduce el numero de columnas del campo de batalla");
         int columnas = input.nextInt();
-        input.nextLine();//Limpio el buffer después de leer un número.
+        input.nextLine();// Limpio el buffer después de leer un número.
 
         // Imprimo y muestro al usuario el número de filas y columnas que ha introducido.
 
         System.out.println("Terreno de batalla: " + filas + " filas y " + columnas + " columnas");
         System.out.println("¡Atención: Riesgo de bombas en el área!");
         System.out.println("¡Y recuerde!: Tenga mucha precaución y buena suerte...");
-
-        //Cierro la herramienta Scanner
-
-        input.close();
 
         // Ahora creamos una matriz para representar el terreno de juego y batalla (usamos char[][]).
 
@@ -55,6 +51,20 @@ public class MartinezCristianEjercicio1 {  // "Metodo main"(metodo principal don
             int columna = rand.nextInt(columnas); // Generamos una columna aleatoria.
             terreno[fila][columna] = 'X'; // "X" representa la bomba.
         }
+
+        // Solicitamos la posición inicial al jugador que sera 'P'.
+
+        System.out.println("Introduce la fila de inicio del jugador:");
+        int filaJugador = input.nextInt();
+        input.nextLine(); // Limpio el buffer después de leer un número.
+
+        System.out.println("Introduce la columna de inicio del jugador:");
+        int columnaJugador = input.nextInt();
+        input.nextLine(); // Limpio el buffer después de leer un número.
+
+        terreno[filaJugador][columnaJugador] = 'P'; /* Coloca al jugador en las coordenadas especificadas por el usuario
+                                                       en el campo de batalla, representando su posicion con la letra 'P'
+                                                       en la matriz */
 
         // Ahora vamos a imprimir y mostrar al usuario el terreno con las bombas colocadas
         System.out.println("¡ULTIMO AVISO!¡PELIGRO!¡SE B00MBAS EN EL CMAPO DE BATALLA");
