@@ -11,7 +11,7 @@ public class MartinezCristianEjercicio1 {  // "Método main"(metodo principal do
         final String ANSI_WHITE = "\u001B[37m"; // Información estándar.
         final String ANSI_YELLOW = "\u001B[33m"; // Errores y advertencias menores.
 
-        /*Impresion de mensaje de bienvenida al usuario.
+        /* Impresion de mensaje de bienvenida al usuario.
         Este mensaje aparecerá al inicio para que el usuario sepa que está en el juego Bomberman.*/
 
         System.out.println(ANSI_CYAN + "¡Bienvenido a B00MBERMAN!");
@@ -20,7 +20,7 @@ public class MartinezCristianEjercicio1 {  // "Método main"(metodo principal do
 
         Scanner input = new Scanner(System.in);
 
-        //Usuario introduce el valor de filas y Scanner guarda su información.
+        // Usuario introduce el valor de filas y Scanner guarda su información.
 
         System.out.println(ANSI_CYAN + "Introduce el número de filas del campo de batalla");
         int filas = input.nextInt();
@@ -169,13 +169,13 @@ public class MartinezCristianEjercicio1 {  // "Método main"(metodo principal do
                             // Cálculo de la explosión sumando los valores en la fila y columna.
                             int explosion = 0;
 
-                            // Sumar los valores en la fila.
+                            // Suma de los valores en la fila.
                             for (int i = 0; i < columnas; i++) {
                                 if (terreno[filaBomba][i] != 0) { // No contar la bomba.
                                     explosion += terreno[filaBomba][i];
                                 }
                             }
-                            // Sumar los valores en la columna.
+                            // Sumar de valores en la columna.
                             for (int i = 0; i < filas; i++) {
                                 if (terreno[i][columnaBomba] != 0) { // No contar la bomba.
                                     explosion += terreno[i][columnaBomba];
