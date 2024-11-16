@@ -40,29 +40,32 @@ public class MartinezCristianEjercicio2 {
         /* PASO 2: Crear el tablero de ajedrez como una matriz de caracteres.
            Vamos a generar un tablero de ajedrez con las dimensiones que el usuario haya definido. */
 
-            char[][] tablero = new char[8][8]; // Creamos un tablero de ajedrez de 8x8 por defecto.
+        char[][] tablero = new char[8][8]; // Creamos un tablero de ajedrez de 8x8 por defecto.
 
-            // Empezamos a llenar la matriz del tablero con el patrón que ha seleccionado el usuario.
-            for (int i = 0; i < 8; i++) { // Usamos "FOR" para recorrer las filas del tablero.
-                for (int j = 0; j < 8; j++) { // Usamos "FOR" para recorrer las columnas del tablero.
-                    // Usamos una condición "IF/ELSE" para alternar entre casillas blancas y negras.
-                    if ((i + j) % 2 == 0) { // Si la suma de la fila y la columna "es par", colocamos el patrón para casillas blancas.
-                        tablero[i][j] = patron.charAt(0); // Aquí asignamos el primer carácter del patrón al tablero (para casillas blancas).
-                    } else { // Si la suma de la fila y la columna "es impar", colocamos el patrón para casillas negras.
-                        tablero[i][j] = patron.charAt(0); // Aquí asignamos el segundo carácter del patrón al tablero (para las casillas negras).
-                    }
+        // Empezamos a llenar la matriz del tablero con el patrón que ha seleccionado el usuario.
+        for (int i = 0; i < 8; i++) { // Usamos "FOR" para recorrer las filas del tablero.
+            for (int j = 0; j < 8; j++) { // Usamos "FOR" para recorrer las columnas del tablero.
+                // Usamos una condición "IF/ELSE" para alternar entre casillas blancas y negras.
+                if ((i + j) % 2 == 0) { // Si la suma de la fila y la columna "es par", colocamos el patrón para casillas blancas.
+                    tablero[i][j] = ' '; // Aquí asignamos un espacio vacío, sin patrón.
+                } else { // Si la suma de la fila y la columna "es impar", colocamos el patrón para casillas negras.
+                    tablero[i][j] = patron.charAt(0); // Aquí asignamos el segundo carácter del patrón al tablero (para las casillas negras).
                 }
             }
-            // PASO 4 : Mostramos visualmente la representación del tablero de ajedrez ajustado por el tamaño de la casilla.
-            System.out.println("Tablero de ajedrez: ");
-            for (int i = 0; i < 8; i++) { // Recorremos las filas del tablero para mostrarlo.
+        }
+        // PASO 4 : Mostramos visualmente la representación del tablero de ajedrez ajustado por el tamaño de la casilla.
+        System.out.println("Tablero de ajedrez: ");
+        for (int i = 0; i < 8; i++) { // Recorremos las filas del tablero para mostrarlo.
+            for (int t = 0; t < tamanoCasilla; t++) { // Repetimos cada fila según el tamaño de la casilla.
                 for (int j = 0; j < 8; j++) { // Recorremos las columnas para mostrar cada casilla.
-                    // Ajustamos el tamaño de la casilla
-                    for (int t = 0; t < tamanoCasilla; t++) { // Aqui ajustamos el tamaño de la casilla.
+                    // Repetimos el patrón dentro de la casilla en la dirección horizontal.
+                    for (int k = 0; k < tamanoCasilla; k++) { // Repetimos el patrón horizontalmente.
                         System.out.print(tablero[i][j] + " "); // Imprimimos el patrón de la casilla.
                     }
                 }
-                System.out.println(); // Nueva linea después de cada fila para que se vea bien el formato del tablero.
+                System.out.println(); // Nueva línea después de cada repetición en la dirección horizontal.
             }
+            System.out.println(); // Nueva línea después de cada fila para que se vea bien el formato del tablero.
         }
     }
+}
