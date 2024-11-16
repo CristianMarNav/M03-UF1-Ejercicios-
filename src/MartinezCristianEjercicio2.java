@@ -10,7 +10,7 @@ public class MartinezCristianEjercicio2 {
         Scanner input = new Scanner(System.in);
 
         // Mensaje de bienvenida al usuario.
-        System.out.println("¡Bienvenido al juego de Ajedrez!, te damos la bienvenida en nombre de La Salle Chess Board, ¡que disfrutes!");
+        System.out.println("¡Bienvenido al juego del Ajedrez!, te damos la bienvenida en nombre de La Salle Chess Board, ¡que disfrutes!");
 
         // Pedimos al usuario que ingrese el patrón para el tablero.
         System.out.println("Por favor, ingresa el patrón que quieres para las casillas del tablero (ejemplo: #,X,*, etc.");
@@ -53,11 +53,14 @@ public class MartinezCristianEjercicio2 {
                     }
                 }
             }
-            // Mostramos el tablero de ajedrez generado.
+            // PASO 4 : Mostramos visualmente la representación del tablero de ajedrez ajustado por el tamaño de la casilla.
             System.out.println("Tablero de ajedrez: ");
-            for (int i = 0; i < 8; i++) { // Recorremos nuevamente las filas del tablero para mostrarlo.
+            for (int i = 0; i < 8; i++) { // Recorremos las filas del tablero para mostrarlo.
                 for (int j = 0; j < 8; j++) { // Recorremos las columnas para mostrar cada casilla.
-                    System.out.print(tablero[i][j] + " "); // Imprimir cada casilla.
+                    System.out.print(tablero[i][j] +" "); // Imprimir cada casilla ajustada por el tamaño ingresado.
+                    for (int t = 0; t < tamanoCasilla; t++) { // Aqui ajustamos el tamaño de la casilla.
+                        System.out.print(tablero[i][j] + " "); // Imprimimos el patrón de la casilla.
+                    }
                 }
                 System.out.println(); // Nueva linea después de cada fila para que se vea bien el formato del tablero.
             }
