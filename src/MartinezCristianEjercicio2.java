@@ -16,9 +16,9 @@ public class MartinezCristianEjercicio2 {
         System.out.println("Por favor, ingresa el patrón que quieres para las casillas del tablero (ejemplo: #,X,*, etc.");
         String patron = input.nextLine(); // Guardamos el patrón ingresado por el usuario.
 
-        // Validamos que el patrón tenga al menos dos caracteres
-        while (patron.length() < 2) { // Bucle "WHILE" continuará hasta que el patrón sea válido.
-            System.out.println("El patrón debe tener al menos caracteres. Por favor, ingresa otro patrón.");
+        // Validamos que el patrón tenga solo un carácter.
+        while (patron.length() != 1) { // Bucle "WHILE" continuará hasta que el patrón sea válido.
+            System.out.println("El patrón debe ser un solo carácter. Por favor, ingresa otro patrón.");
             patron = input.nextLine(); // Pedimos nuevamente al usuario el patrón si no es válido.
         }
         // Mostramos el patrón ingresado.
@@ -49,7 +49,7 @@ public class MartinezCristianEjercicio2 {
                     if ((i + j) % 2 == 0) { // Si la suma de la fila y la columna "es par", colocamos el patrón para casillas blancas.
                         tablero[i][j] = patron.charAt(0); // Aquí asignamos el primer carácter del patrón al tablero (para casillas blancas).
                     } else { // Si la suma de la fila y la columna "es impar", colocamos el patrón para casillas negras.
-                        tablero[i][j] = patron.charAt(1); // Aquí asignamos el segundo carácter del patrón al tablero (para las casillas negras).
+                        tablero[i][j] = patron.charAt(0); // Aquí asignamos el segundo carácter del patrón al tablero (para las casillas negras).
                     }
                 }
             }
@@ -57,7 +57,7 @@ public class MartinezCristianEjercicio2 {
             System.out.println("Tablero de ajedrez: ");
             for (int i = 0; i < 8; i++) { // Recorremos las filas del tablero para mostrarlo.
                 for (int j = 0; j < 8; j++) { // Recorremos las columnas para mostrar cada casilla.
-                    System.out.print(tablero[i][j] +" "); // Imprimir cada casilla ajustada por el tamaño ingresado.
+                    // Ajustamos el tamaño de la casilla
                     for (int t = 0; t < tamanoCasilla; t++) { // Aqui ajustamos el tamaño de la casilla.
                         System.out.print(tablero[i][j] + " "); // Imprimimos el patrón de la casilla.
                     }
